@@ -1,0 +1,77 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - order
+  - get_menu
+  - get_opening_hours
+  - get_opening_on_day
+  - check_out
+  - clear
+
+actions:
+  - action_get_menu
+  - action_get_opening_hours
+  - action_get_opening_on_day
+  - action_get_order
+  - action_confirm_order
+  - action_sum_up_order
+  - action_clear_order
+entities:
+  - dish
+  - dish_extra
+
+slots:
+  order:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: dish
+
+  order_extra:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: dish_extra
+
+      
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+  
+  check_valid:
+  - text: "Yeah, sure sure"
+
+  utter_response:
+  - text: "Yeah, sure sure"
+
+  ask_if_else:
+  - text: "Anything else?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

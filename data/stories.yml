@@ -1,0 +1,125 @@
+version: "3.1"
+
+
+
+
+stories:
+
+
+- story: get menu order
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+  - action: action_get_order
+  - intent: affirm
+  - action: ask_if_else
+  - intent: affirm
+  - intent: order
+  - action: action_get_order
+  - action: ask_if_else
+  - intent: deny
+  - action: action_confirm_order
+  - intent: affirm
+  - action: action_sum_up_order
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: get menu order 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+  - action: action_get_order
+  - intent: order
+  - action: action_get_order
+  - intent: check_out
+  - action: action_confirm_order
+  - intent: deny
+  - action: utter_goodbye
+  - intent: order
+  - action: action_get_order
+  - action: action_confirm_order
+  - intent: affirm
+  - action: action_sum_up_order
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: get menu order 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+  - action: action_get_order
+  - intent: deny
+  - action: action_confirm_order
+  - intent: affirm
+  - action: action_sum_up_order
+  - intent: deny
+  - action: utter_goodbye
+
+- story: get menu order 4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+  - action: action_get_order
+  - intent: deny
+  - action: action_confirm_order
+  - intent: affirm
+  - action: action_sum_up_order
+
+- story: get menu order 5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+  - action: action_get_order
+  - intent: affirm
+  - intent: order
+  - action: action_get_order
+  - intent: deny
+  - action: action_confirm_order
+  - intent: affirm
+  - action: action_sum_up_order
+
+- story: order dish 6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+  - action: action_get_order
+  - intent: deny
+  - action: action_confirm_order
+  - intent: deny
+  - action: utter_goodbye
+
+- story: get open time
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_opening_hours
+  - action: action_get_opening_hours
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: get open time 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_opening_on_day
+  - action: action_get_opening_on_day
+  - intent: goodbye
+  - action: utter_goodbye

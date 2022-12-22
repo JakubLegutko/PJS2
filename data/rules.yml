@@ -1,0 +1,38 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+- rule: confirm order
+  steps:
+  - action: action_get_order
+  - intent: deny
+  - action: action_confirm_order
+  wait_for_user_input: false
+- rule: sum up order
+  steps:
+  - action: action_confirm_order
+  - intent: affirm
+  - action: action_sum_up_order
+  wait_for_user_input: false
+
+- rule: do not order
+  steps:
+  - action: action_sum_up_order
+  - intent: deny
+  - action: utter_goodbye
+  wait_for_user_input: false
+
+- rule: clear order
+  steps:
+  - intent: clear
+  - action: action_clear_order
+  wait_for_user_input: false

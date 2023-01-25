@@ -24,9 +24,17 @@ current_receipt = []
 def CheckOpen() -> bool:
     with open('data/opening_hours.json', 'r') as f:
         hours = json.load(f)
+        test_time = False
         current_time = datetime.datetime.now()
         today = list(hours['items'].keys())[current_time.weekday()]
-        return True
+        time_string = int(str(current_time.time())[:2])
+        if (not test_time):
+            if (time_string > hours['items'][today]['close'] or time_string < hours['items'][today]['open']):
+                return False
+            else:
+                return True
+        else:
+            return True
 
         
 class ActionGetMenu(Action):
@@ -92,7 +100,8 @@ class ActionOrderDish(Action):
         tracker: Tracker, 
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         if not CheckOpen():
-            dispatcher.utter_message(text="Sorry, the restaurant is closed, try ordering between the following hours:")
+            current_time = datetime.datetime.now()
+            dispatcher.utter_message(text="Sorry, the restaurant is closed, as right now it's {} o'clock, try ordering between the following hours:".format(str(current_time.ctime())[:-5]))
             with open('data/opening_hours.json', 'r') as f:
                 hours = json.load(f)
             for i in hours['items']:
@@ -112,7 +121,7 @@ class ActionOrderDish(Action):
         if order:
             for item in order:
                 for dish in menu["items"]:
-                    if(fuzz.ratio(dish["name"].lower(), item.lower()) > 85):
+                    if(fuzz.ratio(dish["name"].lower(), item.lower()) > 85 or fuzz.partial_ratio(dish["name"].lower(), item.lower()) > 85):
                         current_receipt.append(dish)   
             output_message.extend(order)
             

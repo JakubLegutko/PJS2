@@ -11,3 +11,6 @@ https://rasa.com/docs/rasa/connectors/slack
 
 In this example conversation an user orders some items, then proceeds to checkout.
 Another conversation is started later, with omitting the greeting, going straight to the menu and then abandonning the order.
+
+The bot will now check whether the restaurant is open, if not it will tell the user to come back at a later time, the user can disable this 
+function and enter debug mode by setting test_time to True inside the actions.py file

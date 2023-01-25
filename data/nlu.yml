@@ -39,7 +39,7 @@ nlu:
     - Ok, [Tiramisu](dish) then.
     - I will have [Spaghetti Carbonara](dish).
     - Bring me [Burger](dish).
-    - [Tiramisu without Milk](dis_extra) and [Vegan Burger](dish_extra) for me.
+    - [Tiramisu without Milk](dish_extra) and [Vegan Burger](dish_extra) for me.
     - Also, [Spaghetti Carbonara with extra cheese](dish_extra) to top off.
     - (dish), (dish), (dish), (dish).
     - I order [Pizza with additional Pineapple](dish_extra).
@@ -50,6 +50,8 @@ nlu:
     - I would like [Beef](dish).
     - I will have [Salade](dish).
     - Bring me [Tofu](dish).
+    - I will take [Pizz](dish)
+    - Give me [Burger](dish) and also [Salad], give me [Spaghetti Carbonara] too
 
 - intent: get_opening_hours
   examples: |

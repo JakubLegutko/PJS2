@@ -106,6 +106,33 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
+- story: order and clear then order
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+  - action: action_get_order
+  - intent: affirm
+  - action: action_get_order
+  - intent: affirm
+  - action: action_get_order
+  - intent: affirm
+  - action: action_get_order
+  - intent: deny
+  - action: action_confirm_order
+  - intent: clear
+  - action: action_clear_order
+  - intent: order
+  - action: action_get_order
+  - intent: deny
+  - action: action_confirm_order
+  - intent: affirm
+  - action: action_sum_up_order
+  - action: utter_goodbye
+
+  
 - story: get open time
   steps:
   - intent: greet

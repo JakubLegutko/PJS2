@@ -14,3 +14,5 @@ Another conversation is started later, with omitting the greeting, going straigh
 
 The bot will now check whether the restaurant is open, if not it will tell the user to come back at a later time, the user can disable this 
 function and enter debug mode by setting test_time to True inside the actions.py file
+
+The bot is also capable of detecting the intent to see the order by the user.

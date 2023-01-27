@@ -14,6 +14,7 @@ intents:
   - get_opening_on_day
   - check_out
   - clear
+  - show_order
 
 actions:
   - action_get_menu
@@ -23,6 +24,7 @@ actions:
   - action_confirm_order
   - action_sum_up_order
   - action_clear_order
+  - action_show_order
 entities:
   - dish
   - dish_extra

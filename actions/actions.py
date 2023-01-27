@@ -162,6 +162,26 @@ class ActionConfirmOrder(Action):
         dispatcher.utter_message(text="Could you please confirm the order? {}".format(total_names))
         return []
 
+class ActionShowOrder(Action):
+    def name(self) -> Text:
+        return "action_show_order"
+    def run(self,
+        dispatcher: CollectingDispatcher, 
+        tracker: Tracker, 
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        dispatcher.utter_message(text="Your order currently consists of ")
+        if (not len(current_receipt)):
+            dispatcher.utter_message(text="Nothing, please order something first")
+        else:
+            for dish in current_receipt:
+
+                dispatcher.utter_message(text=" {} for the price of {} $ and prep time of {} minutes ".format(dish["name"],dish["price"],int(dish["preparation_time"]*60)))
+            dispatcher.utter_message(text="Can I get you anything else?")    
+        return []
+
+
+
 class ActionClearOrder(Action):
     def name(self) -> Text:
         return "action_clear_order"
@@ -189,6 +209,6 @@ class ActionSumUpTheOrder(Action):
             money+=dish["price"]
             time+=dish["preparation_time"]
 
-        dispatcher.utter_message(text="Thank You for ordering in our restaurant. We inform You that your shipment will be ready for transport in {} minutes. The total cost is {}$. Have a nice meal :-)".format(time*60, money))
+        dispatcher.utter_message(text="Thank You for ordering in our restaurant. We inform You that your shipment will be ready for transport in {} minutes. The total cost is {}$. Have a nice meal :-)".format(int(time*60), money))
         current_receipt.clear()
         return []

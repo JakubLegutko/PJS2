@@ -36,3 +36,26 @@ rules:
   - intent: clear
   - action: action_clear_order
   wait_for_user_input: false
+
+- rule: show order when asked
+  steps:
+  - intent: show_order
+  - action: action_show_order 
+
+- rule: show order when asked, sum when denied
+  steps:
+  - action: action_show_order 
+  - intent: deny
+  - action: action_confirm_order
+
+- rule: show order when asked, add when ordered
+  steps:
+  - action: action_show_order 
+  - intent: order
+  - action: action_get_order
+
+- rule: ask for order if affirmed
+  steps:
+  - action: action_show_order
+  - intent: affirm
+  - action: utter_happy

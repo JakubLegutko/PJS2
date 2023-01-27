@@ -13,13 +13,15 @@ stories:
   - intent: get_menu
   - action: action_get_menu
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
-  - intent: affirm
-  - action: ask_if_else
-  - intent: affirm
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
-  - action: ask_if_else
   - intent: deny
   - action: action_confirm_order
   - intent: affirm
@@ -34,14 +36,23 @@ stories:
   - intent: get_menu
   - action: action_get_menu
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
   - intent: check_out
   - action: action_confirm_order
   - intent: deny
   - action: utter_goodbye
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
   - action: action_confirm_order
   - intent: affirm
@@ -56,6 +67,9 @@ stories:
   - intent: get_menu
   - action: action_get_menu
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
   - intent: deny
   - action: action_confirm_order
@@ -71,6 +85,9 @@ stories:
   - intent: get_menu
   - action: action_get_menu
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
   - intent: deny
   - action: action_confirm_order
@@ -84,9 +101,15 @@ stories:
   - intent: get_menu
   - action: action_get_menu
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
   - intent: affirm
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
   - intent: deny
   - action: action_confirm_order
@@ -100,10 +123,32 @@ stories:
   - intent: get_menu
   - action: action_get_menu
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
   - intent: deny
   - action: action_confirm_order
   - intent: deny
+  - action: utter_goodbye
+
+- story: order dish 7
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+    entities:
+    - dish
+    - dish_extra
+  - action: action_get_order
+  - intent: show_order
+  - action: action_show_order
+  - intent: deny
+  - action: action_confirm_order
+  - intent: affirm
+  - action: action_sum_up_order
   - action: utter_goodbye
 
 - story: order and clear then order
@@ -113,12 +158,24 @@ stories:
   - intent: get_menu
   - action: action_get_menu
   - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
-  - intent: affirm
+  - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
-  - intent: affirm
+  - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
-  - intent: affirm
+  - intent: order
+    entities:
+    - dish
+    - dish_extra
   - action: action_get_order
   - intent: deny
   - action: action_confirm_order
@@ -132,7 +189,46 @@ stories:
   - action: action_sum_up_order
   - action: utter_goodbye
 
-  
+- story: order then show then clear then order
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+    entities:
+    - dish
+    - dish_extra
+  - action: action_get_order
+  - intent: order
+    entities:
+    - dish
+    - dish_extra
+  - action: action_get_order
+  - intent: order
+    entities:
+    - dish
+    - dish_extra
+  - action: action_get_order
+  - intent: order
+    entities:
+    - dish
+    - dish_extra
+  - action: action_get_order
+  - intent: show_order
+  - action: action_show_order
+  - intent: clear
+  - action: action_clear_order
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+  - action: action_get_order
+  - intent: deny
+  - action: action_confirm_order
+  - intent: affirm
+  - action: action_sum_up_order
+  - action: utter_goodbye
+
 - story: get open time
   steps:
   - intent: greet

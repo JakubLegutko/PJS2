@@ -77,6 +77,21 @@ nlu:
     - That's all
     - Nothing more
 
+- intent: show_order
+  examples: |
+    - Please show me my order
+    - show order
+    - order show
+    - Could you remind me of my order?
+    - What is my order now?
+    - How much will I pay?
+    - How long will my order take?
+    - Is my order expensive now?
+    - What have I added to my order?
+    - Show me my order please
+    - I would like to see my order
+    - I would like to see the order
+
 - intent: get_menu
   examples: |
     - What can I order?

@@ -16,3 +16,5 @@ The bot will now check whether the restaurant is open, if not it will tell the u
 function and enter debug mode by setting test_time to True inside the actions.py file
 
 The bot is also capable of detecting the intent to see the order by the user.
+
+The bot will ask the user to pick delivery or pickup, on delivery it will add delivery time and cost to the order.

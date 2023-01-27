@@ -59,3 +59,23 @@ rules:
   - action: action_show_order
   - intent: affirm
   - action: utter_happy
+
+- rule: tell pickup if pickup
+  steps:
+  - action: action_sum_up_order
+  - intent: pickup
+  - action: action_tell_pickup
+  wait_for_user_input: false
+
+- rule: ask address if delivery
+  steps:
+  - action: action_sum_up_order
+  - intent: delivery
+  - action: utter_ask_address
+
+- rule: tell delivery if given address
+  steps:
+  - action: utter_ask_address
+  - intent: address
+  - action: action_take_delivery
+  wait_for_user_input: false

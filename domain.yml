@@ -15,6 +15,9 @@ intents:
   - check_out
   - clear
   - show_order
+  - address
+  - pickup
+  - delivery
 
 actions:
   - action_get_menu
@@ -25,11 +28,19 @@ actions:
   - action_sum_up_order
   - action_clear_order
   - action_show_order
+  - action_tell_pickup
+  - action_take_delivery
 entities:
   - dish
   - dish_extra
+  - address
 
 slots:
+  address:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: address
   order:
     type: list
     influence_conversation: false
@@ -74,6 +85,8 @@ responses:
   ask_if_else:
   - text: "Anything else?"
 
+  utter_ask_address:
+  - text: "Please provide the delivery address"
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

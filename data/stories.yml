@@ -26,7 +26,8 @@ stories:
   - action: action_confirm_order
   - intent: affirm
   - action: action_sum_up_order
-  - intent: affirm
+  - intent: pickup
+  - action: action_tell_pickup
   - action: utter_goodbye
 
 - story: get menu order 2
@@ -57,7 +58,12 @@ stories:
   - action: action_confirm_order
   - intent: affirm
   - action: action_sum_up_order
-  - intent: affirm
+  - intent: delivery
+  - action: utter_ask_address
+  - intent: address
+    entities:
+    - address
+  - action: action_take_delivery
   - action: utter_goodbye
 
 - story: get menu order 3
@@ -149,6 +155,8 @@ stories:
   - action: action_confirm_order
   - intent: affirm
   - action: action_sum_up_order
+  - intent: pickup
+  - action: action_tell_pickup
   - action: utter_goodbye
 
 - story: order and clear then order
@@ -187,6 +195,12 @@ stories:
   - action: action_confirm_order
   - intent: affirm
   - action: action_sum_up_order
+  - intent: delivery
+  - action: utter_ask_address
+  - intent: address
+    entities:
+    - address
+  - action: action_take_delivery
   - action: utter_goodbye
 
 - story: order then show then clear then order
@@ -227,6 +241,12 @@ stories:
   - action: action_confirm_order
   - intent: affirm
   - action: action_sum_up_order
+  - intent: delivery
+  - action: utter_ask_address
+  - intent: address
+    entities:
+    - address
+  - action: action_take_delivery
   - action: utter_goodbye
 
 - story: get open time

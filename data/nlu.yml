@@ -77,6 +77,39 @@ nlu:
     - That's all
     - Nothing more
 
+- intent: pickup
+  examples: |
+    - I'll come to pick it up
+    - pickup
+    - I will pick it up
+    - I'll take it
+    - I'll get it myself
+    - I will grab it
+    - I would like to pick it up
+    - I want to pick it up
+
+- intent: address
+  examples: |
+    - My address is (address)
+    - Here it is (address)
+    - Please deliver it to (address)
+    - My home is at [Pogorzelice, ul.Grabia 51](address)
+    - The delivery address is (address)
+    - Would you be so kind and bring it to (address)?
+    - (address) would be the delivery address
+    - (address) is where I want it
+
+
+- intent: delivery
+  examples: |
+    - Please deliver my order
+    - I would like to have it delivered
+    - deliver
+    - delivery
+    - Ship it to me please
+    - I prefer shipping
+    - I would prefer delivery
+
 - intent: show_order
   examples: |
     - Please show me my order

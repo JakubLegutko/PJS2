@@ -15,7 +15,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 import datetime
 from fuzzywuzzy import fuzz
-
+from random import randint
 menuFile = open("data/menu.json", 'r')
 menu = json.load(menuFile)
 
@@ -210,5 +210,46 @@ class ActionSumUpTheOrder(Action):
             time+=dish["preparation_time"]
 
         dispatcher.utter_message(text="Thank You for ordering in our restaurant. We inform You that your shipment will be ready for transport in {} minutes. The total cost is {}$. Have a nice meal :-)".format(int(time*60), money))
+        dispatcher.utter_message(text="Would you like to pick up your order or have it delivered?")
+        #current_receipt.clear()
+        return []
+
+class ActionTellPickup(Action):
+    def name(self) -> Text:
+        return "action_tell_pickup"
+    def run(self,
+        dispatcher: CollectingDispatcher, 
+        tracker: Tracker, 
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        time = 0
+        money = 0
+        for dish in current_receipt:
+            money+=dish["price"]
+            time+=dish["preparation_time"]
+
+        dispatcher.utter_message(text="Thank You for ordering in our restaurant. We inform You that your meal will be ready for pickup in {} minutes. The total cost is {}$. Have a nice meal :-)".format(int(time*60), money))
+
+        current_receipt.clear()
+        return []
+
+class ActionTakeDelivery(Action):
+    def name(self) -> Text:
+        return "action_take_delivery"
+    def run(self,
+        dispatcher: CollectingDispatcher, 
+        tracker: Tracker, 
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        address = tracker.get_slot("address")
+        time = 0
+        money = 0
+        for dish in current_receipt:
+            money+=dish["price"]
+            time+=dish["preparation_time"]
+
+        distance = randint(10,50)
+        time += distance*0.1
+        money += distance*0.3
+        dispatcher.utter_message(text="Thank You for ordering in our restaurant. We inform You that your meal will be delivered to {} in {} minutes. The total cost is {}$. Have a nice meal :-)".format(address,int(time*60), money))
+
         current_receipt.clear()
         return []

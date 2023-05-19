@@ -18,3 +18,8 @@ function and enter debug mode by setting test_time to True inside the actions.py
 The bot is also capable of detecting the intent to see the order by the user.
 
 The bot will ask the user to pick delivery or pickup, on delivery it will add delivery time and cost to the order.
+
+Update May 19: The bot is now capable of connecting to GPT models and asking them questions on the behalf of the user:
+![image](https://github.com/JakubLegutko/PJS2/assets/64753746/281369f4-64c3-4375-9e53-2d2ffc51e284)
+![image](https://github.com/JakubLegutko/PJS2/assets/64753746/aad1bc89-602d-4ac0-987b-9b5f6355062a)
+Needs a secret code in the actions.py file to be able to ask questions though. This costs money so I won't give mine away

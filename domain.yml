@@ -18,7 +18,7 @@ intents:
   - address
   - pickup
   - delivery
-
+  - ask_chat
 actions:
   - action_get_menu
   - action_get_opening_hours
@@ -30,6 +30,7 @@ actions:
   - action_show_order
   - action_tell_pickup
   - action_take_delivery
+  - action_ask_chat
 entities:
   - dish
   - dish_extra

@@ -266,3 +266,25 @@ stories:
   - action: action_get_opening_on_day
   - intent: goodbye
   - action: utter_goodbye
+
+- story: ask_chat 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_chat
+  - action: action_ask_chat
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: order and ask chat
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: get_menu
+  - action: action_get_menu
+  - intent: order
+  - action: action_get_order
+  - intent: ask_chat
+  - action: action_ask_chat
+  - intent: goodbye
+  - action: utter_goodbye

@@ -9,7 +9,8 @@
 
 from typing import Any, Text, Dict, List
 import json
-
+import openai
+import os
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
@@ -231,7 +232,24 @@ class ActionTellPickup(Action):
 
         current_receipt.clear()
         return []
-
+class ActionAskChat(Action):
+    def name(self) -> Text:
+        return "action_ask_chat"
+    def run(self,
+        dispatcher: CollectingDispatcher, 
+        tracker: Tracker, 
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        openai.api_key = "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"
+        user_message = tracker.latest_message['text']
+        #dispatcher.utter_message(text=user_message)
+        response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=user_message,
+        max_tokens=100,
+        temperature=0.7
+        )
+        dispatcher.utter_message(text=response["choices"][0]["text"])
+        return []
 class ActionTakeDelivery(Action):
     def name(self) -> Text:
         return "action_take_delivery"

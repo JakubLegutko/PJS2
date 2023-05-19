@@ -67,6 +67,20 @@ nlu:
     - Is the restaurant open on [weekday](day)?
     - [weekday](day) opening time
 
+- intent: ask_chat
+  examples: |
+    - GPT, tell me
+    - Can I talk to GPT?
+    - Can I talk to chatbot?
+    - Can I talk to chat bot?
+    - Can I talk to chat-bot?
+    - I would like to ask a different question
+    - I want to ask a special question
+    - I want to ask a question
+    - I want to ask something
+    - I want to ask something else
+    - I want to ask something different
+    - I want to ask something special
 
 - intent: check_out
   examples: |

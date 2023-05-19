@@ -6,7 +6,11 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
-
+- rule: Ask GPT if user wants to
+  steps:
+  - intent: ask_chat
+  - action: action_ask_chat
+  
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
